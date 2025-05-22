@@ -1,0 +1,154 @@
+.pageTitle {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 60px;
+  margin-top: 40px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-content: center;
+  justify-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  background: #fff;
+  border: 1px solid #e1e4ea;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s, transform 0.1s;
+}
+.card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.iconBox {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background: #f5f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.icon {
+  max-width: 70%;
+  max-height: 70%;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  line-height: 1.3;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #1565C0;              /* насыщенный синий для текста */
+  background-color: #E3F2FD;   /* очень светлый голубой фон */
+  border-radius: 6px;        /* «пилюля» */
+}
+
+.button {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #15346c;
+  background: transparent;
+  border: 2px solid #15346c;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.button:hover {
+  background: #15346c;
+  color: #fff;
+}
+
+
+.uberCard {
+  position: relative;
+  overflow: hidden;
+}
+
+
+@keyframes moveTaxi {
+  from { left: -150px; }
+  to   { left: 100%; }
+}
+
+
+.uberCard::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -150px;
+  width: 150px;
+  height: 60px;
+  background: url('taxi.png') no-repeat center/contain;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+
+.uberCard:hover::after {
+  animation: moveTaxi 1s linear forwards;
+}
+
+
+
+.teslaCard {
+  position: relative;
+  overflow: hidden;
+}
+
+/* псевдоэлемент — ракета */
+.teslaCard::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;      /* старт за нижней границей */
+  left: 90%;
+  width: 80px;
+  height: 160px;
+  background: url('rocket.png') no-repeat center/contain;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* ключевые кадры взлёта */
+@keyframes launchRocket {
+  from { bottom: -200px; }
+  to   { bottom: 120%; }  /* уходим выше верхней границы */
+}
+
+/* при ховере запускаем анимацию */
+.teslaCard:hover::after {
+  animation: launchRocket 1.5s ease-out forwards;
+}
